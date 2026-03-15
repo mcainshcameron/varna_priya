@@ -3,7 +3,16 @@
   "last_updated": "2025-03-15",
   "blog_posts": [],
   "portfolio": {
-    "digital_mandalas": [],
+    "digital_mandalas": [
+      {
+        "slug": "cosmic-lotus",
+        "title": "Cosmic Lotus",
+        "description": "Intricate digital mandala",
+        "display": "assets/images/portfolio/digital-mandalas/display/mandala-cosmic-lotus.jpg",
+        "original": "assets/images/portfolio/digital-mandalas/originals/mandala-cosmic-lotus.jpg",
+        "added": "2025-03-15"
+      }
+    ],
     "physical_crafts": [],
     "celestial_wallpapers": []
   },
