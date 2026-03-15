@@ -29,6 +29,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -107,10 +108,11 @@ img {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 1, 24, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(26, 46, 46, 0.95);
+    backdrop-filter: blur(15px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    border-bottom: 1px solid rgba(13, 148, 136, 0.2);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -194,18 +196,26 @@ img {
     margin: 0 auto 3rem;
     z-index: 1;
     animation: fadeInScale 1.5s ease-out;
+    position: relative;
 }
 
 .hero-image {
     width: 100%;
     height: auto;
     display: block;
-    filter: drop-shadow(0 20px 60px rgba(13, 148, 136, 0.4));
-    transition: transform 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 20px 60px rgba(13, 148, 136, 0.5),
+                0 0 80px rgba(13, 148, 136, 0.3),
+                inset 0 0 60px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid rgba(13, 148, 136, 0.3);
 }
 
 .hero-image:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    box-shadow: 0 25px 80px rgba(13, 148, 136, 0.6),
+                0 0 100px rgba(13, 148, 136, 0.4),
+                inset 0 0 60px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeInScale {
@@ -305,6 +315,12 @@ img {
     color: var(--muted-text);
     font-size: 0.875rem;
     animation: bounce 2s infinite;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    color: var(--primary-color);
 }
 
 .arrow-down {
@@ -313,11 +329,23 @@ img {
     border-left: 2px solid var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
     transform: rotate(-45deg);
+    transition: border-color 0.3s ease;
+}
+
+.scroll-indicator:hover .arrow-down {
+    border-color: var(--teal-bright);
 }
 
 /* SECTIONS */
 section {
     padding: 5rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Fix for smooth scrolling and prevent overlap */
+section:not(.hero) {
+    scroll-margin-top: 80px;
 }
 
 .section-title {
@@ -344,14 +372,39 @@ section {
     border-radius: 20px;
     padding: 2.5rem;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.1), rgba(200, 113, 55, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
     border-color: var(--primary-color);
-    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.3);
+    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.4),
+                0 5px 15px rgba(200, 113, 55, 0.2);
+}
+
+.feature-card > * {
+    position: relative;
+    z-index: 1;
 }
 
 .feature-icon {
@@ -381,14 +434,34 @@ section {
 
 /* KO-FI SECTION */
 .kofi-section {
-    background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), rgba(200, 113, 55, 0.2));
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.15), rgba(200, 113, 55, 0.15));
     border-top: 1px solid var(--card-border);
     border-bottom: 1px solid var(--card-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.kofi-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(13, 148, 136, 0.1) 0%, transparent 70%);
+    animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
 }
 
 .kofi-banner {
     text-align: center;
     padding: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .kofi-banner h2 {
@@ -415,22 +488,47 @@ section {
     overflow: hidden;
     border-radius: 15px;
     aspect-ratio: 1;
+    border: 1px solid var(--card-border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(13, 148, 136, 0.4);
+    border-color: var(--primary-color);
 }
 
 .gallery-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--teal-dark), var(--bronze));
+    background: linear-gradient(135deg, var(--teal-dark), var(--bronze), var(--teal-bright));
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     color: white;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
+    position: relative;
+}
+
+.gallery-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .gallery-item:hover .gallery-placeholder {
     transform: scale(1.1);
+}
+
+.gallery-item:hover .gallery-placeholder::before {
+    opacity: 1;
 }
 
 .centered-cta {
@@ -484,8 +582,10 @@ section {
 
 /* PAGE HEADER */
 .page-header {
-    padding: 8rem 0 4rem;
+    padding: 10rem 0 4rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .page-header h1 {
@@ -544,12 +644,32 @@ section {
     border: 1px solid var(--card-border);
     border-radius: 15px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.portfolio-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.1), rgba(200, 113, 55, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
 }
 
 .portfolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.4),
+                0 5px 15px rgba(200, 113, 55, 0.2);
+    border-color: var(--primary-color);
+}
+
+.portfolio-item:hover::after {
+    opacity: 1;
 }
 
 .portfolio-image {
@@ -1128,7 +1248,9 @@ section {
 
 /* BLOG POST PAGE */
 .blog-post {
-    padding-top: 5rem;
+    padding-top: 8rem;
+    position: relative;
+    z-index: 1;
 }
 
 .post-header {
