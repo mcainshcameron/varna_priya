@@ -1,0 +1,12 @@
+# CNAME Template for Custom Domain
+#
+# To use a custom domain with GitHub Pages:
+# 1. Rename this file to just "CNAME" (remove .template)
+# 2. Replace the example below with your actual domain
+# 3. Configure DNS at your domain registrar:
+#    - Add a CNAME record pointing to: YOUR-USERNAME.github.io
+#    - OR add A records pointing to GitHub Pages IPs
+# 4. Enable HTTPS in GitHub Pages settings
+#
+# Example (remove this comment and use your domain):
+# varnapriya.com
