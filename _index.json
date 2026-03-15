@@ -18,7 +18,17 @@
   },
   "free_resources": {
     "wallpapers": [],
-    "mandalas": [],
+    "mandalas": [
+      {
+        "slug": "harmony-colouring",
+        "title": "Harmony Mandala — Colouring Page",
+        "description": "A detailed floral mandala to print and colour. Perfect for relaxation and mindfulness.",
+        "file": "downloads/free-resources/mandalas/mandala-harmony-colouring.jpg",
+        "preview": "downloads/preview/preview-mandala-harmony-colouring.jpg",
+        "format": "JPG",
+        "added": "2025-03-15"
+      }
+    ],
     "patterns": [],
     "templates": []
   },
