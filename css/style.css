@@ -38,8 +38,6 @@ body {
     color: var(--light-text);
     line-height: 1.6;
     overflow-x: hidden;
-    position: relative;
-    z-index: 0;
 }
 
 /* Custom Scrollbar */
@@ -191,11 +189,10 @@ img {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 8rem 2rem 6rem;
+    padding: 8rem 2rem 8rem;
     position: relative;
-    z-index: 10;
     background: var(--dark-bg);
-    margin-bottom: 0;
+    margin-bottom: 2rem;
 }
 
 .hero-image-container {
@@ -239,8 +236,6 @@ img {
 
 .hero-content {
     max-width: 800px;
-    z-index: 20;
-    position: relative;
 }
 
 .cosmic-title {
@@ -316,7 +311,9 @@ img {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 4rem;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -326,7 +323,6 @@ img {
     animation: bounce 2s infinite;
     cursor: pointer;
     transition: color 0.3s ease;
-    z-index: 20;
 }
 
 .scroll-indicator:hover {
@@ -350,60 +346,12 @@ img {
 section {
     padding: 5rem 0;
     position: relative;
-    z-index: 10;
     background: var(--dark-bg);
-    isolation: isolate;
 }
 
 /* Fix for smooth scrolling and prevent overlap */
 section:not(.hero) {
     scroll-margin-top: 80px;
-}
-
-/* Ensure all content stays above background */
-.container {
-    position: relative;
-    z-index: 10;
-}
-
-/* Features section specific */
-.features {
-    background: var(--dark-bg);
-    position: relative;
-    z-index: 11;
-    margin-top: 0;
-    padding-top: 6rem;
-}
-
-.features::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--card-border), transparent);
-    z-index: -1;
-}
-
-/* Add separator to other major sections */
-.recent-work,
-.portfolio-filters,
-.resources-intro {
-    position: relative;
-    z-index: 11;
-}
-
-.recent-work::before,
-.portfolio-filters::before,
-.resources-intro::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--card-border), transparent);
 }
 
 .section-title {
@@ -434,7 +382,6 @@ section:not(.hero) {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
-    z-index: 1;
 }
 
 .feature-card::before {
@@ -447,7 +394,7 @@ section:not(.hero) {
     background: linear-gradient(135deg, rgba(13, 148, 136, 0.1), rgba(200, 113, 55, 0.1));
     opacity: 0;
     transition: opacity 0.4s ease;
-    z-index: -1;
+    z-index: 0;
 }
 
 .feature-card:hover::before {
@@ -463,7 +410,7 @@ section:not(.hero) {
 
 .feature-card > * {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .feature-icon {
@@ -498,7 +445,6 @@ section:not(.hero) {
     border-bottom: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
-    z-index: 10;
 }
 
 .kofi-section::before {
@@ -510,7 +456,7 @@ section:not(.hero) {
     height: 200%;
     background: radial-gradient(circle, rgba(13, 148, 136, 0.1) 0%, transparent 70%);
     animation: pulse 15s ease-in-out infinite;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
 }
 
@@ -602,8 +548,6 @@ section:not(.hero) {
     background: var(--darker-bg);
     border-top: 1px solid var(--card-border);
     padding: 3rem 0 1rem;
-    position: relative;
-    z-index: 10;
 }
 
 .footer-content {
@@ -648,8 +592,6 @@ section:not(.hero) {
 .page-header {
     padding: 10rem 0 4rem;
     text-align: center;
-    position: relative;
-    z-index: 1;
 }
 
 .page-header h1 {
@@ -710,7 +652,6 @@ section:not(.hero) {
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    z-index: 1;
 }
 
 .portfolio-item::after {
@@ -724,7 +665,7 @@ section:not(.hero) {
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
 }
 
 .portfolio-item:hover {
@@ -1315,8 +1256,6 @@ section:not(.hero) {
 /* BLOG POST PAGE */
 .blog-post {
     padding-top: 8rem;
-    position: relative;
-    z-index: 10;
     background: var(--dark-bg);
 }
 
