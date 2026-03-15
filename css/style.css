@@ -16,7 +16,7 @@
     --bronze: #d4823b;
     --navy: #1a3d5c;
     --gold: #c9a961;
-    --card-bg: rgba(26, 46, 46, 0.85);
+    --card-bg: rgba(26, 46, 46, 0.95);
     --card-border: rgba(13, 148, 136, 0.3);
 }
 
@@ -38,6 +38,8 @@ body {
     color: var(--light-text);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
+    z-index: 0;
 }
 
 /* Custom Scrollbar */
@@ -84,16 +86,19 @@ img {
     width: 100%;
     height: 100%;
     display: block;
-    z-index: -1;
+    z-index: -10;
+    pointer-events: none;
 }
 
 .stars {
     background: linear-gradient(180deg, #1a2e2e 0%, #0f1d1d 50%, #1a2e2e 100%);
+    z-index: -10;
 }
 
 .twinkling {
     background: radial-gradient(ellipse at top, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse at bottom, rgba(200, 113, 55, 0.1) 0%, transparent 50%);
+    z-index: -9;
 }
 
 /* CONTAINER */
@@ -188,6 +193,8 @@ img {
     text-align: center;
     padding: 8rem 2rem 4rem;
     position: relative;
+    z-index: 10;
+    background: transparent;
 }
 
 .hero-image-container {
@@ -340,12 +347,19 @@ img {
 section {
     padding: 5rem 0;
     position: relative;
-    z-index: 1;
+    z-index: 10;
+    background: var(--dark-bg);
 }
 
 /* Fix for smooth scrolling and prevent overlap */
 section:not(.hero) {
     scroll-margin-top: 80px;
+}
+
+/* Ensure all content stays above background */
+.container {
+    position: relative;
+    z-index: 10;
 }
 
 .section-title {
@@ -376,6 +390,7 @@ section:not(.hero) {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .feature-card::before {
@@ -388,7 +403,7 @@ section:not(.hero) {
     background: linear-gradient(135deg, rgba(13, 148, 136, 0.1), rgba(200, 113, 55, 0.1));
     opacity: 0;
     transition: opacity 0.4s ease;
-    z-index: 0;
+    z-index: -1;
 }
 
 .feature-card:hover::before {
@@ -404,7 +419,7 @@ section:not(.hero) {
 
 .feature-card > * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .feature-icon {
@@ -439,6 +454,7 @@ section:not(.hero) {
     border-bottom: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
+    z-index: 10;
 }
 
 .kofi-section::before {
@@ -450,6 +466,8 @@ section:not(.hero) {
     height: 200%;
     background: radial-gradient(circle, rgba(13, 148, 136, 0.1) 0%, transparent 70%);
     animation: pulse 15s ease-in-out infinite;
+    z-index: -1;
+    pointer-events: none;
 }
 
 @keyframes pulse {
@@ -540,6 +558,8 @@ section:not(.hero) {
     background: var(--darker-bg);
     border-top: 1px solid var(--card-border);
     padding: 3rem 0 1rem;
+    position: relative;
+    z-index: 10;
 }
 
 .footer-content {
@@ -646,6 +666,7 @@ section:not(.hero) {
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    z-index: 1;
 }
 
 .portfolio-item::after {
@@ -659,6 +680,7 @@ section:not(.hero) {
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
+    z-index: -1;
 }
 
 .portfolio-item:hover {
@@ -1250,7 +1272,8 @@ section:not(.hero) {
 .blog-post {
     padding-top: 8rem;
     position: relative;
-    z-index: 1;
+    z-index: 10;
+    background: var(--dark-bg);
 }
 
 .post-header {
