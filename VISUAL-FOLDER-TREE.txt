@@ -1,0 +1,102 @@
+VARNA PRIYA - COMPLETE FOLDER STRUCTURE
+========================================
+
+varna_priya/
+│
+├── 📄 index.html                          # Homepage
+├── 📄 portfolio.html                      # Portfolio gallery
+├── 📄 blog.html                           # Blog listing
+├── 📄 resources.html                      # Free resources page
+├── 📄 about.html                          # About page
+├── 📄 blog-post-1.html                    # Sample blog post
+│
+├── 📄 README.md                           # Setup guide
+├── 📄 FOLDER-STRUCTURE.md                 # Complete folder documentation
+├── 📄 QUICK-REFERENCE.md                  # Quick lookup guide
+├── 📄 DEPLOYMENT-GUIDE.md                 # GitHub Pages deployment
+├── 📄 CUSTOMIZATION-CHECKLIST.md          # Content customization checklist
+├── 📄 .gitignore                          # Git ignore file
+│
+├── 📁 assets/                             # All website assets
+│   └── 📁 images/
+│       ├── 📁 hero/                       # Hero/banner images
+│       │   └── 📷 peacock-feather.jpg     # Current hero image (1200x1200px)
+│       │
+│       ├── 📁 portfolio/                  # Portfolio showcase images
+│       │   ├── 📁 digital-mandalas/
+│       │   │   ├── 📁 display/            # Compressed for web (800x800px JPEG)
+│       │   │   ├── 📁 originals/          # High-res downloads (4000x4000px PNG)
+│       │   │   └── 📄 README.md
+│       │   │
+│       │   ├── 📁 physical-crafts/
+│       │   │   ├── 📁 display/            # Compressed for web (800x600px JPEG)
+│       │   │   └── 📁 originals/          # High-res photos (PNG)
+│       │   │
+│       │   └── 📁 celestial-wallpapers/
+│       │       ├── 📁 display/            # Preview (800x450px JPEG)
+│       │       └── 📁 originals/          # Full wallpapers (3840x2160px)
+│       │
+│       └── 📁 blog/                       # Blog images
+│           ├── 📁 featured/               # Blog post headers (1200x675px JPEG)
+│           └── 📁 content/                # Images within posts (1000px wide)
+│
+├── 📁 blog/                               # Blog system
+│   └── 📁 posts/                          # Individual blog posts
+│       ├── 📄 post-template.html          # Template for new posts
+│       ├── 📄 README.md                   # How to add blog posts
+│       └── (future posts here: YYYY-MM-DD-title.html)
+│
+├── 📁 downloads/                          # Downloadable content
+│   ├── 📁 free-resources/                 # Free downloads
+│   │   ├── 📁 wallpapers/                 # Desktop/mobile wallpapers (PNG)
+│   │   ├── 📁 mandalas/                   # Printable mandalas (PDF)
+│   │   ├── 📁 patterns/                   # Seamless patterns (PNG)
+│   │   ├── 📁 templates/                  # Design templates (PSD/PNG)
+│   │   └── 📄 README.md
+│   │
+│   └── 📁 preview/                        # Preview thumbnails (400x300px JPEG)
+│
+├── 📁 css/                                # Stylesheets
+│   └── 📄 style.css                       # Main CSS (peacock theme)
+│
+└── 📁 js/                                 # JavaScript
+    └── 📄 main.js                         # Interactive features
+
+
+TYPICAL FILE LOCATIONS
+======================
+
+NEW HERO IMAGE:
+→ assets/images/hero/new-image.jpg
+  Then update: index.html
+
+NEW PORTFOLIO MANDALA:
+→ assets/images/portfolio/digital-mandalas/display/mandala-name.jpg (compressed)
+→ assets/images/portfolio/digital-mandalas/originals/mandala-name.png (high-res)
+  Then update: portfolio.html
+
+NEW BLOG POST:
+→ blog/posts/2024-XX-XX-post-title.html (copy from template)
+→ assets/images/blog/featured/blog-2024-XX-XX-post-title.jpg
+  Then update: blog.html
+
+NEW FREE WALLPAPER:
+→ downloads/free-resources/wallpapers/wallpaper-name.png
+→ downloads/preview/preview-wallpaper-name.jpg
+  Then update: resources.html
+
+
+WORKFLOW SUMMARY
+================
+
+1. CREATE CONTENT → Save to appropriate folder
+2. ADD PREVIEW → If downloadable resource
+3. UPDATE HTML → Link to new content
+4. GIT PUSH → Upload to GitHub
+
+
+COLOR CODING
+============
+📄 = File
+📁 = Folder
+📷 = Image

@@ -1,0 +1,245 @@
+{
+  "website": {
+    "name": "Varna Priya",
+    "url": "https://mcainshcameron.github.io/varna_priya/",
+    "github_repo": "https://github.com/mcainshcameron/varna_priya.git"
+  },
+
+  "content_types": {
+    "blog_post": {
+      "keywords": ["blog", "post", "article", "write about"],
+      "template": "blog/posts/post-template.html",
+      "output_folder": "blog/posts/",
+      "naming_pattern": "{date}-{slug}.html",
+      "date_format": "YYYY-MM-DD",
+      "images": {
+        "featured": {
+          "folder": "assets/images/blog/featured/",
+          "naming": "blog-{date}-{slug}.jpg",
+          "size": "1200x675",
+          "format": "jpeg",
+          "quality": 80
+        },
+        "content": {
+          "folder": "assets/images/blog/content/",
+          "naming": "{slug}-{number}.jpg",
+          "max_width": 1000,
+          "format": "jpeg",
+          "quality": 75
+        }
+      },
+      "update_html": ["blog.html"],
+      "required_fields": ["title", "content"],
+      "optional_fields": ["category", "tags", "featured_image"]
+    },
+
+    "portfolio_mandala": {
+      "keywords": ["mandala", "digital art", "portfolio", "design"],
+      "folders": {
+        "originals": "assets/images/portfolio/digital-mandalas/originals/",
+        "display": "assets/images/portfolio/digital-mandalas/display/"
+      },
+      "naming_pattern": "mandala-{name}.{ext}",
+      "processing": {
+        "original": {
+          "format": "png",
+          "quality": 100,
+          "min_size": "2000x2000"
+        },
+        "display": {
+          "size": "800x800",
+          "format": "jpeg",
+          "quality": 75,
+          "max_filesize": "150KB"
+        }
+      },
+      "update_html": ["portfolio.html"],
+      "required_fields": ["name", "image_file"],
+      "optional_fields": ["description"]
+    },
+
+    "physical_craft": {
+      "keywords": ["craft", "physical", "glass painting", "crochet", "jewelry"],
+      "folders": {
+        "originals": "assets/images/portfolio/physical-crafts/originals/",
+        "display": "assets/images/portfolio/physical-crafts/display/"
+      },
+      "naming_pattern": "craft-{type}-{name}.{ext}",
+      "craft_types": ["glass-painting", "crochet", "jewelry", "other"],
+      "processing": {
+        "original": {
+          "format": "png",
+          "quality": 100
+        },
+        "display": {
+          "size": "800x600",
+          "format": "jpeg",
+          "quality": 75
+        }
+      },
+      "update_html": ["portfolio.html"],
+      "add_dm_button": true,
+      "required_fields": ["name", "type", "image_file"],
+      "optional_fields": ["description", "price_range"]
+    },
+
+    "celestial_wallpaper": {
+      "keywords": ["celestial wallpaper", "space wallpaper", "cosmic background"],
+      "folders": {
+        "originals": "assets/images/portfolio/celestial-wallpapers/originals/",
+        "display": "assets/images/portfolio/celestial-wallpapers/display/"
+      },
+      "naming_pattern": "wallpaper-{name}.{ext}",
+      "processing": {
+        "original": {
+          "format": "png",
+          "recommended_size": "3840x2160"
+        },
+        "display": {
+          "size": "800x450",
+          "format": "jpeg",
+          "quality": 75
+        }
+      },
+      "update_html": ["portfolio.html"],
+      "required_fields": ["name", "image_file"]
+    },
+
+    "free_wallpaper": {
+      "keywords": ["free wallpaper", "wallpaper download", "desktop background"],
+      "folder": "downloads/free-resources/wallpapers/",
+      "preview_folder": "downloads/preview/",
+      "naming_pattern": "wallpaper-{name}.png",
+      "preview_naming": "preview-wallpaper-{name}.jpg",
+      "processing": {
+        "file": {
+          "format": "png",
+          "recommended_sizes": ["3840x2160", "1920x1080", "1080x2400"]
+        },
+        "preview": {
+          "size": "400x300",
+          "format": "jpeg",
+          "quality": 75,
+          "max_filesize": "50KB"
+        }
+      },
+      "update_html": ["resources.html"],
+      "required_fields": ["name", "file"],
+      "optional_fields": ["description", "dimensions"]
+    },
+
+    "free_mandala_pdf": {
+      "keywords": ["free mandala", "coloring page", "printable mandala"],
+      "folder": "downloads/free-resources/mandalas/",
+      "preview_folder": "downloads/preview/",
+      "naming_pattern": "mandala-{name}.pdf",
+      "preview_naming": "preview-mandala-{name}.jpg",
+      "processing": {
+        "file": {
+          "format": "pdf",
+          "recommended_dpi": 300
+        },
+        "preview": {
+          "size": "400x300",
+          "format": "jpeg",
+          "quality": 75
+        }
+      },
+      "update_html": ["resources.html"],
+      "required_fields": ["name", "file"],
+      "optional_fields": ["description", "page_count"]
+    },
+
+    "free_pattern": {
+      "keywords": ["free pattern", "seamless pattern", "design pattern"],
+      "folder": "downloads/free-resources/patterns/",
+      "preview_folder": "downloads/preview/",
+      "naming_pattern": "pattern-{name}.png",
+      "preview_naming": "preview-pattern-{name}.jpg",
+      "processing": {
+        "file": {
+          "format": "png",
+          "note": "must_be_tileable"
+        },
+        "preview": {
+          "size": "400x300",
+          "format": "jpeg",
+          "quality": 75,
+          "show_tiled": true
+        }
+      },
+      "update_html": ["resources.html"],
+      "required_fields": ["name", "file"]
+    },
+
+    "free_template": {
+      "keywords": ["free template", "instagram template", "social media template"],
+      "folder": "downloads/free-resources/templates/",
+      "preview_folder": "downloads/preview/",
+      "naming_pattern": "template-{name}.{ext}",
+      "preview_naming": "preview-template-{name}.jpg",
+      "accepted_formats": ["psd", "png", "zip"],
+      "processing": {
+        "preview": {
+          "size": "400x300",
+          "format": "jpeg",
+          "quality": 75
+        }
+      },
+      "update_html": ["resources.html"],
+      "required_fields": ["name", "file", "file_format"]
+    },
+
+    "hero_image": {
+      "keywords": ["hero image", "banner", "homepage image", "main image"],
+      "folder": "assets/images/hero/",
+      "naming_pattern": "peacock-feather.jpg",
+      "processing": {
+        "size": "1200x1200",
+        "format": "jpeg",
+        "quality": 85,
+        "max_filesize": "300KB"
+      },
+      "update_html": ["index.html"],
+      "update_line": 38,
+      "required_fields": ["image_file"]
+    }
+  },
+
+  "automation": {
+    "auto_compress": true,
+    "auto_git_commit": true,
+    "auto_git_push": true,
+    "generate_preview": true,
+    "update_html_automatically": true
+  },
+
+  "naming_rules": {
+    "use_lowercase": true,
+    "replace_spaces_with": "-",
+    "remove_special_chars": true,
+    "max_filename_length": 50
+  },
+
+  "social_links": {
+    "instagram": "https://instagram.com/varnapriya",
+    "kofi": "https://ko-fi.com/varnapriya"
+  },
+
+  "git": {
+    "default_commit_prefix": {
+      "blog_post": "Add blog post:",
+      "portfolio": "Add portfolio item:",
+      "free_resource": "Add free resource:",
+      "hero_image": "Update hero image",
+      "social_links": "Update social links"
+    }
+  },
+
+  "success_messages": {
+    "blog_post": "✅ Blog post published! Live in 2-3 minutes.",
+    "portfolio": "✅ Portfolio item added!",
+    "free_resource": "✅ Free resource added! Users can now download it.",
+    "hero_image": "✅ Hero image updated!"
+  }
+}
