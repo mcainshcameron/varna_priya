@@ -29,7 +29,6 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
 }
 
 body {
@@ -189,10 +188,8 @@ img {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 8rem 2rem 8rem;
-    position: relative;
+    padding: 2rem;
     background: var(--dark-bg);
-    margin-bottom: 2rem;
 }
 
 .hero-image-container {
@@ -309,49 +306,11 @@ img {
     font-size: 1.1rem;
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--muted-text);
-    font-size: 0.875rem;
-    animation: bounce 2s infinite;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.scroll-indicator:hover {
-    color: var(--primary-color);
-}
-
-.arrow-down {
-    width: 20px;
-    height: 20px;
-    border-left: 2px solid var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    transform: rotate(-45deg);
-    transition: border-color 0.3s ease;
-}
-
-.scroll-indicator:hover .arrow-down {
-    border-color: var(--teal-bright);
-}
 
 /* SECTIONS */
 section {
     padding: 5rem 0;
-    position: relative;
     background: var(--dark-bg);
-}
-
-/* Fix for smooth scrolling and prevent overlap */
-section:not(.hero) {
-    scroll-margin-top: 80px;
 }
 
 .section-title {
@@ -1180,14 +1139,6 @@ section:not(.hero) {
     }
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
